@@ -1,45 +1,113 @@
 /* ==========================================
    OUR STORY ❤️
-   Main JavaScript
+   Main App Script
 ========================================== */
 
 document.addEventListener("DOMContentLoaded", () => {
 
+    startMusic();
     createStars();
-
     createHearts();
-
-    pageTransition();
+    loadingScreen();
 
 });
 
 /* ==========================================
-   CREATE STARS
+   BACKGROUND MUSIC
 ========================================== */
 
-function createStars(){
+function startMusic() {
+
+    const music = document.getElementById("music");
+
+    if (!music) return;
+
+    music.volume = 0.30;
+
+    // Restore playback position
+    const savedTime = localStorage.getItem("musicTime");
+
+    if (savedTime) {
+
+        music.currentTime = parseFloat(savedTime);
+
+    }
+
+    // Start music after first user interaction
+    const playMusic = () => {
+
+        music.play().catch(() => {});
+
+        document.removeEventListener("click", playMusic);
+        document.removeEventListener("touchstart", playMusic);
+
+    };
+
+    document.addEventListener("click", playMusic);
+    document.addEventListener("touchstart", playMusic);
+
+    // Save playback position every second
+    setInterval(() => {
+
+        if (!music.paused) {
+
+            localStorage.setItem("musicTime", music.currentTime);
+
+        }
+
+    }, 1000);
+
+}
+
+/* ==========================================
+   LOADER
+========================================== */
+
+function loadingScreen() {
+
+    const loader = document.querySelector(".loader");
+
+    if (!loader) return;
+
+    setTimeout(() => {
+
+        loader.style.opacity = "0";
+
+        setTimeout(() => {
+
+            loader.style.display = "none";
+
+        }, 500);
+
+    }, 2500);
+
+}
+
+/* ==========================================
+   STARS
+========================================== */
+
+function createStars() {
 
     const container = document.getElementById("stars");
 
-    if(!container) return;
+    if (!container) return;
 
-    for(let i=0;i<180;i++){
+    for (let i = 0; i < 120; i++) {
 
-        const star=document.createElement("div");
+        const star = document.createElement("div");
 
-        star.className="star";
+        star.className = "star";
 
-        star.style.left=Math.random()*100+"vw";
+        const size = Math.random() * 3 + 1;
 
-        star.style.top=Math.random()*100+"vh";
+        star.style.width = size + "px";
+        star.style.height = size + "px";
 
-        star.style.animationDelay=Math.random()*5+"s";
+        star.style.left = Math.random() * 100 + "%";
+        star.style.top = Math.random() * 100 + "%";
 
-        star.style.opacity=Math.random();
-
-        star.style.width=(Math.random()*3+1)+"px";
-
-        star.style.height=star.style.width;
+        star.style.animationDelay = Math.random() * 5 + "s";
 
         container.appendChild(star);
 
@@ -51,206 +119,72 @@ function createStars(){
    FLOATING HEARTS
 ========================================== */
 
-function createHearts(){
+function createHearts() {
 
-    const container=document.getElementById("hearts");
+    const container = document.getElementById("hearts");
 
-    if(!container) return;
+    if (!container) return;
 
-    const emojis=[
-        "❤️",
-        "💕",
-        "💖",
-        "💗",
-        "💓"
-    ];
+    setInterval(() => {
 
-    setInterval(()=>{
+        const heart = document.createElement("div");
 
-        const heart=document.createElement("div");
+        heart.className = "floating-heart";
 
-        heart.className="floating-heart";
+        heart.innerHTML = "❤️";
 
-        heart.innerHTML=emojis[Math.floor(Math.random()*emojis.length)];
+        heart.style.left = Math.random() * 100 + "%";
 
-        heart.style.left=Math.random()*100+"vw";
+        heart.style.fontSize = (18 + Math.random() * 18) + "px";
 
-        heart.style.fontSize=(18+Math.random()*18)+"px";
-
-        heart.style.animationDuration=(6+Math.random()*5)+"s";
+        heart.style.animationDuration = (6 + Math.random() * 4) + "s";
 
         container.appendChild(heart);
 
-        setTimeout(()=>{
+        setTimeout(() => {
 
             heart.remove();
 
-        },12000);
+        }, 10000);
 
-    },350);
+    }, 800);
 
 }
 
 /* ==========================================
-   PAGE TRANSITION
+   FULL PAGE CLICK
 ========================================== */
 
-function pageTransition(){
+function enableFullPageClick(nextPage) {
 
-    document.body.addEventListener("click",(e)=>{
+    document.body.addEventListener("click", function (e) {
 
-        if(
-            e.target.tagName==="BUTTON" ||
-            e.target.tagName==="A"
-        ){
+        if (
+            e.target.closest("button") ||
+            e.target.closest("a") ||
+            e.target.closest("audio")
+        ) {
+
             return;
+
         }
+
+        window.location.href = nextPage;
 
     });
 
 }
 
 /* ==========================================
-   GO TO NEXT PAGE
+   SMOOTH FADE
 ========================================== */
 
-function go(page){
+window.addEventListener("pageshow", () => {
 
-    document.body.classList.add("fade-out");
-
-    setTimeout(()=>{
-
-        window.location.href=page;
-
-    },700);
-
-}
-
-/* ==========================================
-   TYPEWRITER
-========================================== */
-
-function typeWriter(id,text,speed=45){
-
-    const element=document.getElementById(id);
-
-    if(!element) return;
-
-    element.innerHTML="";
-
-    let i=0;
-
-    const timer=setInterval(()=>{
-
-        element.innerHTML+=text.charAt(i);
-
-        i++;
-
-        if(i>=text.length){
-
-            clearInterval(timer);
-
-        }
-
-    },speed);
-
-}
-
-/* ==========================================
-   HEART EXPLOSION
-========================================== */
-
-function heartExplosion(x,y){
-
-    for(let i=0;i<25;i++){
-
-        const heart=document.createElement("div");
-
-        heart.innerHTML="❤️";
-
-        heart.style.position="fixed";
-
-        heart.style.left=x+"px";
-
-        heart.style.top=y+"px";
-
-        heart.style.pointerEvents="none";
-
-        heart.style.fontSize="22px";
-
-        heart.style.transition="1s ease";
-
-        heart.style.zIndex="9999";
-
-        document.body.appendChild(heart);
-
-        const dx=(Math.random()-0.5)*300;
-
-        const dy=(Math.random()-0.5)*300;
-
-        setTimeout(()=>{
-
-            heart.style.transform=
-            `translate(${dx}px,${dy}px) scale(0)`;
-
-            heart.style.opacity="0";
-
-        },20);
-
-        setTimeout(()=>{
-
-            heart.remove();
-
-        },1000);
-
-    }
-
-}
-
-/* ==========================================
-   DOUBLE CLICK EFFECT
-========================================== */
-
-document.addEventListener("dblclick",(e)=>{
-
-    heartExplosion(e.clientX,e.clientY);
+    document.body.classList.add("page-loaded");
 
 });
 
 /* ==========================================
-   CLICK ANYWHERE TO CONTINUE
+   END
 ========================================== */
-
-function enableFullPageClick(nextPage){
-
-    document.body.onclick=function(){
-
-        go(nextPage);
-
-    };
-
-}
-
-/* ==========================================
-   MUSIC
-========================================== */
-
-function toggleMusic(){
-
-    const music=document.getElementById("music");
-
-    if(!music) return;
-
-    if(music.paused){
-
-        music.play();
-
-    }
-
-    else{
-
-        music.pause();
-
-    }
-
-}
