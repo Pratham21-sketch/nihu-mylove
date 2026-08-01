@@ -1,0 +1,454 @@
+/* ==========================================
+   OUR STORY ❤️
+   Premium Animation Library
+========================================== */
+
+/* ==========================
+   LOADING BAR
+========================== */
+
+@keyframes loading{
+
+    0%{
+        width:0%;
+    }
+
+    100%{
+        width:100%;
+    }
+
+}
+
+/* ==========================
+   HEART BEAT
+========================== */
+
+@keyframes heartbeat{
+
+    0%{
+        transform:scale(1);
+    }
+
+    20%{
+        transform:scale(1.15);
+    }
+
+    40%{
+        transform:scale(1);
+    }
+
+    60%{
+        transform:scale(1.18);
+    }
+
+    100%{
+        transform:scale(1);
+    }
+
+}
+
+/* ==========================
+   GLOW EFFECT
+========================== */
+
+@keyframes glow{
+
+    0%{
+
+        text-shadow:
+        0 0 10px #ff4d88,
+        0 0 20px #ff4d88;
+
+    }
+
+    50%{
+
+        text-shadow:
+        0 0 25px #ff4d88,
+        0 0 50px #ff4d88,
+        0 0 90px #ff4d88;
+
+    }
+
+    100%{
+
+        text-shadow:
+        0 0 10px #ff4d88,
+        0 0 20px #ff4d88;
+
+    }
+
+}
+
+/* ==========================
+   FADE UP
+========================== */
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(60px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/* ==========================
+   FADE DOWN
+========================== */
+
+@keyframes fadeDown{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(-60px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/* ==========================
+   FADE IN
+========================== */
+
+@keyframes fadeIn{
+
+    from{
+
+        opacity:0;
+
+    }
+
+    to{
+
+        opacity:1;
+
+    }
+
+}
+
+/* ==========================
+   FADE OUT
+========================== */
+
+@keyframes fadeOut{
+
+    from{
+
+        opacity:1;
+
+    }
+
+    to{
+
+        opacity:0;
+
+    }
+
+}
+
+.fade-out{
+
+    animation:fadeOut .8s forwards;
+
+}
+
+/* ==========================
+   FLOAT HEARTS
+========================== */
+
+@keyframes floatHeart{
+
+    0%{
+
+        transform:
+        translateY(100vh)
+        rotate(0deg);
+
+        opacity:0;
+
+    }
+
+    10%{
+
+        opacity:.8;
+
+    }
+
+    100%{
+
+        transform:
+        translateY(-150px)
+        rotate(360deg);
+
+        opacity:0;
+
+    }
+
+}
+
+/* ==========================
+   STAR TWINKLE
+========================== */
+
+@keyframes twinkle{
+
+    0%,
+    100%{
+
+        opacity:.2;
+
+        transform:scale(.6);
+
+    }
+
+    50%{
+
+        opacity:1;
+
+        transform:scale(1.5);
+
+    }
+
+}
+
+/* ==========================
+   BUTTON PULSE
+========================== */
+
+@keyframes pulse{
+
+    0%{
+
+        transform:scale(1);
+
+    }
+
+    50%{
+
+        transform:scale(1.05);
+
+    }
+
+    100%{
+
+        transform:scale(1);
+
+    }
+
+}
+
+/* ==========================
+   SCALE IN
+========================== */
+
+@keyframes scaleIn{
+
+    from{
+
+        transform:scale(.7);
+
+        opacity:0;
+
+    }
+
+    to{
+
+        transform:scale(1);
+
+        opacity:1;
+
+    }
+
+}
+
+/* ==========================
+   ROTATE
+========================== */
+
+@keyframes rotate{
+
+    from{
+
+        transform:rotate(0deg);
+
+    }
+
+    to{
+
+        transform:rotate(360deg);
+
+    }
+
+}
+
+/* ==========================
+   PETALS
+========================== */
+
+@keyframes petals{
+
+    from{
+
+        transform:
+        translateY(-100px)
+        rotate(0deg);
+
+    }
+
+    to{
+
+        transform:
+        translateY(110vh)
+        rotate(720deg);
+
+    }
+
+}
+
+/* ==========================
+   CONFETTI
+========================== */
+
+@keyframes confetti{
+
+    from{
+
+        transform:
+        translateY(-150px)
+        rotate(0deg);
+
+    }
+
+    to{
+
+        transform:
+        translateY(110vh)
+        rotate(1080deg);
+
+    }
+
+}
+
+/* ==========================
+   SLIDE LEFT
+========================== */
+
+@keyframes slideLeft{
+
+    from{
+
+        transform:translateX(120px);
+
+        opacity:0;
+
+    }
+
+    to{
+
+        transform:translateX(0);
+
+        opacity:1;
+
+    }
+
+}
+
+/* ==========================
+   SLIDE RIGHT
+========================== */
+
+@keyframes slideRight{
+
+    from{
+
+        transform:translateX(-120px);
+
+        opacity:0;
+
+    }
+
+    to{
+
+        transform:translateX(0);
+
+        opacity:1;
+
+    }
+
+}
+
+/* ==========================
+   ZOOM BACKGROUND
+========================== */
+
+@keyframes zoomBackground{
+
+    from{
+
+        transform:scale(1);
+
+    }
+
+    to{
+
+        transform:scale(1.1);
+
+    }
+
+}
+
+/* ==========================
+   BLINK
+========================== */
+
+@keyframes blink{
+
+    50%{
+
+        opacity:0;
+
+    }
+
+}
+
+/* ==========================
+   SHIMMER
+========================== */
+
+@keyframes shimmer{
+
+    from{
+
+        background-position:-300px;
+
+    }
+
+    to{
+
+        background-position:300px;
+
+    }
+
+}

@@ -1,0 +1,1904 @@
+/* ======================================================
+   OUR STORY ❤️
+   Premium Romantic Theme
+   Part 1
+====================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Great+Vibes&display=swap');
+
+/* =========================
+RESET
+========================= */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+
+font-family:'Poppins',sans-serif;
+
+background:#080814;
+
+color:white;
+
+overflow:hidden;
+
+min-height:100vh;
+
+position:relative;
+
+}
+
+/* =========================
+BACKGROUND
+========================= */
+
+#overlay{
+
+position:fixed;
+
+inset:0;
+
+background:
+
+radial-gradient(circle at top,#31134f 0%,transparent 35%),
+
+radial-gradient(circle at bottom,#061830 0%,transparent 45%),
+
+linear-gradient(180deg,#090B16,#05060d);
+
+z-index:-20;
+
+overflow:hidden;
+
+}
+
+/* =========================
+PAGE
+========================= */
+
+.page{
+
+width:100%;
+
+height:100vh;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+padding:30px;
+
+position:relative;
+
+animation:fadeIn 1.2s;
+
+}
+
+/* =========================
+CARD
+========================= */
+
+.card{
+
+width:90%;
+
+max-width:900px;
+
+padding:50px;
+
+border-radius:35px;
+
+background:rgba(255,255,255,.08);
+
+border:1px solid rgba(255,255,255,.15);
+
+backdrop-filter:blur(25px);
+
+box-shadow:
+
+0 25px 60px rgba(0,0,0,.45),
+
+0 0 80px rgba(255,80,150,.08);
+
+text-align:center;
+
+animation:scaleIn 1s;
+
+}
+
+/* =========================
+HEADINGS
+========================= */
+
+.small-title{
+
+font-size:20px;
+
+letter-spacing:3px;
+
+text-transform:uppercase;
+
+color:#FFD369;
+
+margin-bottom:20px;
+
+}
+
+.title{
+
+font-family:'Great Vibes',cursive;
+
+font-size:90px;
+
+line-height:1.1;
+
+margin-bottom:20px;
+
+}
+
+.glow{
+
+text-shadow:
+
+0 0 10px #ff4d88,
+
+0 0 30px #ff4d88,
+
+0 0 60px #ff4d88;
+
+animation:glow 3s infinite;
+
+}
+
+/* =========================
+TEXT
+========================= */
+
+.subtitle{
+
+font-size:24px;
+
+line-height:1.9;
+
+max-width:700px;
+
+margin:auto;
+
+color:#f2f2f2;
+
+}
+
+.letter-text{
+
+font-size:21px;
+
+line-height:2;
+
+color:#ffffff;
+
+margin-top:25px;
+
+}
+
+/* =========================
+BUTTONS
+========================= */
+
+button{
+
+margin-top:40px;
+
+padding:18px 45px;
+
+border:none;
+
+border-radius:60px;
+
+font-size:20px;
+
+font-weight:600;
+
+cursor:pointer;
+
+background:
+
+linear-gradient(135deg,#ff4d88,#ff2e63);
+
+color:white;
+
+transition:.35s;
+
+box-shadow:
+
+0 15px 35px rgba(255,60,130,.35);
+
+}
+
+button:hover{
+
+transform:translateY(-5px) scale(1.04);
+
+box-shadow:
+
+0 25px 50px rgba(255,60,130,.6);
+
+}
+
+/* =========================
+CLICK TEXT
+========================= */
+
+.click{
+
+margin-top:35px;
+
+font-size:18px;
+
+opacity:.8;
+
+animation:pulse 2s infinite;
+
+}
+
+/* =========================
+LOADER
+========================= */
+
+.loader-box{
+
+text-align:center;
+
+}
+
+.loader-heart{
+
+font-size:90px;
+
+animation:heartbeat 1.5s infinite;
+
+}
+
+.loader{
+
+width:100%;
+
+height:12px;
+
+margin-top:35px;
+
+background:rgba(255,255,255,.12);
+
+border-radius:30px;
+
+overflow:hidden;
+
+}
+
+.progress{
+
+height:100%;
+
+width:0;
+
+background:
+
+linear-gradient(90deg,#ff4d88,#ff77aa,#FFD369);
+
+animation:loading 3.5s linear forwards;
+
+}
+
+/* =========================
+STARS
+========================= */
+
+#stars{
+
+position:fixed;
+
+inset:0;
+
+z-index:-10;
+
+overflow:hidden;
+
+}
+
+.star{
+
+position:absolute;
+
+background:white;
+
+border-radius:50%;
+
+animation:twinkle 3s infinite;
+
+}
+
+/* =========================
+HEARTS
+========================= */
+
+#hearts{
+
+position:fixed;
+
+inset:0;
+
+pointer-events:none;
+
+z-index:-9;
+
+}
+
+.floating-heart{
+
+position:absolute;
+
+bottom:-60px;
+
+animation:floatHeart linear forwards;
+
+filter:drop-shadow(0 0 8px #ff4d88);
+
+}
+
+/* =========================
+PETALS
+========================= */
+
+.petal{
+
+position:fixed;
+
+top:-50px;
+
+pointer-events:none;
+
+z-index:-8;
+
+animation:petals linear forwards;
+
+}
+
+/* =========================
+GLOW PARTICLES
+========================= */
+
+.glow-particle{
+
+position:fixed;
+
+border-radius:50%;
+
+background:#ffffff;
+
+opacity:.35;
+
+filter:blur(2px);
+
+animation:fadeIn 2s;
+
+}
+
+/* =========================
+SHOOTING STAR
+========================= */
+
+.shooting-star{
+
+position:fixed;
+
+left:-200px;
+
+width:180px;
+
+height:2px;
+
+background:
+
+linear-gradient(to right,
+
+white,
+
+transparent);
+
+transform:rotate(-20deg);
+
+animation:shootingStar 2s linear;
+
+}
+/* ======================================================
+   OUR STORY ❤️
+   Premium Romantic Theme
+   Part 2
+====================================================== */
+
+
+/* =========================
+WELCOME PAGE
+========================= */
+
+.welcome-card{
+
+animation:fadeUp 1.2s;
+
+}
+
+.main-title{
+
+font-family:'Great Vibes',cursive;
+
+font-size:110px;
+
+margin-top:10px;
+
+color:#fff;
+
+text-shadow:
+
+0 0 20px #ff4d88,
+
+0 0 45px #ff4d88,
+
+0 0 90px #ff4d88;
+
+}
+
+.nickname{
+
+margin-top:10px;
+
+font-size:36px;
+
+font-weight:500;
+
+color:#FFD369;
+
+letter-spacing:3px;
+
+}
+
+.welcome-text{
+
+margin-top:30px;
+
+font-size:24px;
+
+line-height:2;
+
+color:#eeeeee;
+
+}
+
+
+/* =========================
+ANNIVERSARY COUNTER
+========================= */
+
+#counter{
+
+margin-top:45px;
+
+display:grid;
+
+grid-template-columns:
+
+repeat(4,1fr);
+
+gap:20px;
+
+}
+
+.time-box{
+
+padding:25px;
+
+border-radius:25px;
+
+background:
+
+rgba(255,255,255,.08);
+
+border:
+
+1px solid rgba(255,255,255,.15);
+
+backdrop-filter:blur(20px);
+
+transition:.35s;
+
+}
+
+.time-box:hover{
+
+transform:
+
+translateY(-8px);
+
+background:
+
+rgba(255,255,255,.12);
+
+}
+
+.time-box span{
+
+display:block;
+
+font-size:50px;
+
+font-weight:bold;
+
+color:#FFD369;
+
+text-shadow:
+
+0 0 15px #FFD369;
+
+}
+
+.time-box p{
+
+margin-top:12px;
+
+font-size:18px;
+
+letter-spacing:2px;
+
+text-transform:uppercase;
+
+}
+
+
+/* =========================
+LETTER PAGE
+========================= */
+
+.letter-card{
+
+background:
+
+linear-gradient(
+
+180deg,
+
+rgba(255,255,255,.12),
+
+rgba(255,255,255,.06)
+
+);
+
+}
+
+.letter-text{
+
+text-align:left;
+
+max-width:700px;
+
+margin:auto;
+
+font-size:21px;
+
+line-height:2;
+
+padding-top:20px;
+
+white-space:pre-line;
+
+}
+
+
+/* =========================
+PROPOSAL
+========================= */
+
+.proposal-buttons{
+
+margin-top:45px;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+gap:35px;
+
+flex-wrap:wrap;
+
+}
+
+#yesBtn{
+
+background:
+
+linear-gradient(135deg,#ff4d88,#ff2e63);
+
+}
+
+#noBtn{
+
+background:
+
+linear-gradient(135deg,#777,#444);
+
+}
+
+
+/* =========================
+ENDING PAGE
+========================= */
+
+.ending-heart{
+
+font-size:140px;
+
+margin:30px 0;
+
+animation:heartbeat 1.5s infinite;
+
+}
+
+.end-text{
+
+font-size:28px;
+
+line-height:2;
+
+}
+
+
+/* =========================
+SECRET PAGE
+========================= */
+
+.secret-card{
+
+position:relative;
+
+overflow:hidden;
+
+}
+
+.secret-card::before{
+
+content:"❤️";
+
+position:absolute;
+
+right:20px;
+
+top:20px;
+
+font-size:70px;
+
+opacity:.08;
+
+transform:rotate(-20deg);
+
+}
+
+
+/* =========================
+LOADER TEXT
+========================= */
+
+.loader-box h1{
+
+margin-top:20px;
+
+font-family:'Great Vibes',cursive;
+
+font-size:55px;
+
+}
+
+.loader-box p{
+
+margin-top:25px;
+
+font-size:18px;
+
+opacity:.8;
+
+}
+
+
+/* =========================
+AURORA
+========================= */
+
+body::before{
+
+content:"";
+
+position:fixed;
+
+left:-20%;
+
+top:-20%;
+
+width:600px;
+
+height:600px;
+
+background:
+
+radial-gradient(
+
+circle,
+
+rgba(255,0,120,.18),
+
+transparent 70%
+
+);
+
+filter:blur(60px);
+
+animation:
+
+auroraMove1
+
+18s linear infinite;
+
+pointer-events:none;
+
+z-index:-15;
+
+}
+
+body::after{
+
+content:"";
+
+position:fixed;
+
+right:-20%;
+
+bottom:-20%;
+
+width:700px;
+
+height:700px;
+
+background:
+
+radial-gradient(
+
+circle,
+
+rgba(0,180,255,.12),
+
+transparent 70%
+
+);
+
+filter:blur(70px);
+
+animation:
+
+auroraMove2
+
+22s linear infinite;
+
+pointer-events:none;
+
+z-index:-15;
+
+}
+
+
+/* =========================
+MUSIC BUTTON
+========================= */
+
+.music-btn{
+
+position:fixed;
+
+top:20px;
+
+right:20px;
+
+width:60px;
+
+height:60px;
+
+border-radius:50%;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+font-size:28px;
+
+background:
+
+rgba(255,255,255,.12);
+
+backdrop-filter:blur(15px);
+
+cursor:pointer;
+
+transition:.3s;
+
+}
+
+.music-btn:hover{
+
+transform:scale(1.15);
+
+}
+
+
+/* =========================
+SCROLLBAR
+========================= */
+
+::-webkit-scrollbar{
+
+width:8px;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+background:#ff4d88;
+
+border-radius:20px;
+
+}
+
+::-webkit-scrollbar-track{
+
+background:#090B16;
+
+}
+/* ======================================================
+   OUR STORY ❤️
+   Premium Romantic Theme
+   Part 3
+====================================================== */
+
+
+/* =========================
+CARD HOVER
+========================= */
+
+.card{
+
+transition:.45s ease;
+
+}
+
+.card:hover{
+
+transform:translateY(-10px) scale(1.01);
+
+box-shadow:
+
+0 35px 80px rgba(255,70,150,.18),
+
+0 0 120px rgba(255,70,150,.12);
+
+}
+
+
+/* =========================
+TITLE ANIMATION
+========================= */
+
+.title{
+
+animation:fadeUp 1.2s;
+
+}
+
+.subtitle{
+
+animation:fadeUp 1.5s;
+
+}
+
+.small-title{
+
+animation:fadeDown 1.2s;
+
+}
+
+
+/* =========================
+BUTTON GLOW
+========================= */
+
+button::before{
+
+content:"";
+
+position:absolute;
+
+left:-100%;
+
+top:0;
+
+width:100%;
+
+height:100%;
+
+background:
+
+linear-gradient(
+
+90deg,
+
+transparent,
+
+rgba(255,255,255,.5),
+
+transparent
+
+);
+
+transition:.8s;
+
+}
+
+button{
+
+position:relative;
+
+overflow:hidden;
+
+}
+
+button:hover::before{
+
+left:120%;
+
+}
+
+
+/* =========================
+BUTTON CLICK
+========================= */
+
+button:active{
+
+transform:scale(.95);
+
+}
+
+
+/* =========================
+FLOATING HEART
+========================= */
+
+.floating-heart{
+
+animation-name:floatHeart;
+
+animation-timing-function:linear;
+
+opacity:.85;
+
+}
+
+
+/* =========================
+ROSE PETALS
+========================= */
+
+.petal{
+
+animation-name:petals;
+
+animation-timing-function:linear;
+
+opacity:.9;
+
+filter:drop-shadow(
+
+0 0 10px
+
+rgba(255,120,160,.4)
+
+);
+
+}
+
+
+/* =========================
+SHOOTING STAR
+========================= */
+
+.shooting-star{
+
+animation:shootingStar 2.2s linear forwards;
+
+opacity:.9;
+
+}
+
+
+/* =========================
+STAR
+========================= */
+
+.star{
+
+box-shadow:
+
+0 0 10px white,
+
+0 0 20px white;
+
+}
+
+
+/* =========================
+GLOW PARTICLES
+========================= */
+
+.glow-particle{
+
+animation:
+
+fadeIn 1s,
+
+pulse 3s infinite;
+
+}
+
+
+/* =========================
+LETTER EFFECT
+========================= */
+
+.letter-text::first-letter{
+
+font-size:42px;
+
+font-weight:bold;
+
+font-family:'Great Vibes',cursive;
+
+color:#FFD369;
+
+}
+
+
+/* =========================
+PROMISE PAGE
+========================= */
+
+.promise-quote{
+
+margin-top:40px;
+
+font-size:26px;
+
+font-style:italic;
+
+color:#FFD369;
+
+}
+
+
+/* =========================
+PROPOSAL PAGE
+========================= */
+
+#yesBtn{
+
+min-width:170px;
+
+}
+
+#noBtn{
+
+min-width:170px;
+
+}
+
+
+/* =========================
+CELEBRATION
+========================= */
+
+.celebration-title{
+
+font-size:120px;
+
+animation:
+
+heartbeat 1.5s infinite,
+
+glow 3s infinite;
+
+}
+
+.celebration-text{
+
+font-size:26px;
+
+line-height:2;
+
+}
+
+
+/* =========================
+ENDING
+========================= */
+
+.end-message{
+
+font-size:34px;
+
+line-height:2;
+
+font-family:
+
+'Great Vibes',
+
+cursive;
+
+}
+
+
+/* =========================
+SECRET
+========================= */
+
+.secret-card{
+
+animation:
+
+scaleIn 1.3s;
+
+}
+
+
+/* =========================
+CLICK TEXT
+========================= */
+
+.click{
+
+letter-spacing:2px;
+
+color:#FFD369;
+
+}
+
+
+/* =========================
+IMAGE PLACEHOLDER
+========================= */
+
+.photo-frame{
+
+width:260px;
+
+height:260px;
+
+margin:auto;
+
+margin-bottom:35px;
+
+border-radius:50%;
+
+border:4px solid
+
+rgba(255,255,255,.2);
+
+background:
+
+rgba(255,255,255,.05);
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+font-size:70px;
+
+backdrop-filter:blur(15px);
+
+box-shadow:
+
+0 0 40px rgba(255,255,255,.08);
+
+}
+
+
+/* =========================
+LOVE LINE
+========================= */
+
+.love-line{
+
+width:120px;
+
+height:3px;
+
+margin:30px auto;
+
+border-radius:50px;
+
+background:
+
+linear-gradient(
+
+90deg,
+
+#ff4d88,
+
+#FFD369,
+
+#ff4d88
+
+);
+
+}
+
+
+/* =========================
+BOTTOM TEXT
+========================= */
+
+.bottom-text{
+
+margin-top:40px;
+
+font-size:18px;
+
+opacity:.75;
+
+}
+
+
+/* =========================
+HEART ICON
+========================= */
+
+.big-heart{
+
+font-size:120px;
+
+margin:20px;
+
+animation:
+
+heartbeat 1.4s infinite;
+
+}
+
+
+/* =========================
+FADE CLASSES
+========================= */
+
+.fade-in{
+
+animation:fadeIn 1s forwards;
+
+}
+
+.fade-up{
+
+animation:fadeUp 1s forwards;
+
+}
+
+.fade-down{
+
+animation:fadeDown 1s forwards;
+
+}
+
+.scale-in{
+
+animation:scaleIn 1s forwards;
+
+}
+
+
+/* =========================
+SELECTION
+========================= */
+
+::selection{
+
+background:#ff4d88;
+
+color:white;
+
+}
+
+
+/* =========================
+FOCUS
+========================= */
+
+button:focus{
+
+outline:none;
+
+}
+/* ======================================================
+   OUR STORY ❤️
+   Premium Romantic Theme
+   Part 4 (FINAL)
+======================================================*/
+
+
+/* =========================
+FIREWORK CANVAS
+========================= */
+
+#fireworks{
+
+position:fixed;
+
+left:0;
+
+top:0;
+
+width:100%;
+
+height:100%;
+
+pointer-events:none;
+
+z-index:999;
+
+}
+
+
+/* =========================
+MOUSE GLOW
+========================= */
+
+.mouse-glow{
+
+position:fixed;
+
+width:300px;
+
+height:300px;
+
+border-radius:50%;
+
+background:
+
+radial-gradient(
+
+circle,
+
+rgba(255,90,150,.18),
+
+transparent 70%
+
+);
+
+pointer-events:none;
+
+transform:translate(-50%,-50%);
+
+filter:blur(40px);
+
+z-index:-6;
+
+}
+
+
+/* =========================
+GLASS BORDER
+========================= */
+
+.card::before{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+border-radius:35px;
+
+padding:1px;
+
+background:
+
+linear-gradient(
+
+135deg,
+
+rgba(255,255,255,.25),
+
+rgba(255,255,255,0)
+
+);
+
+-webkit-mask:
+
+linear-gradient(#fff 0 0) content-box,
+
+linear-gradient(#fff 0 0);
+
+-webkit-mask-composite:xor;
+
+mask-composite:exclude;
+
+pointer-events:none;
+
+}
+
+
+/* =========================
+CARD POSITION
+========================= */
+
+.card{
+
+position:relative;
+
+overflow:hidden;
+
+}
+
+
+/* =========================
+TOP SHINE
+========================= */
+
+.card::after{
+
+content:"";
+
+position:absolute;
+
+top:-60%;
+
+left:-120%;
+
+width:80%;
+
+height:220%;
+
+background:
+
+linear-gradient(
+
+90deg,
+
+transparent,
+
+rgba(255,255,255,.08),
+
+transparent
+
+);
+
+transform:rotate(20deg);
+
+animation:cardShine 10s linear infinite;
+
+}
+
+
+/* =========================
+TITLE SPACING
+========================= */
+
+.title{
+
+letter-spacing:2px;
+
+}
+
+
+/* =========================
+SUBTITLE
+========================= */
+
+.subtitle strong{
+
+color:#FFD369;
+
+}
+
+
+/* =========================
+LETTER HIGHLIGHT
+========================= */
+
+.letter-text strong{
+
+color:#FFD369;
+
+font-weight:700;
+
+}
+
+
+/* =========================
+PHOTO SHADOW
+========================= */
+
+.photo-frame img{
+
+width:100%;
+
+height:100%;
+
+object-fit:cover;
+
+border-radius:50%;
+
+}
+
+
+/* =========================
+CLICK MESSAGE
+========================= */
+
+.click{
+
+user-select:none;
+
+cursor:pointer;
+
+}
+
+
+/* =========================
+LOADER HEART
+========================= */
+
+.loader-heart{
+
+filter:
+
+drop-shadow(0 0 20px #ff4d88);
+
+}
+
+
+/* =========================
+PROGRESS
+========================= */
+
+.progress{
+
+box-shadow:
+
+0 0 25px #ff4d88;
+
+}
+
+
+/* =========================
+BUTTON SHADOW
+========================= */
+
+button{
+
+box-shadow:
+
+0 12px 40px
+
+rgba(255,70,150,.35);
+
+}
+
+
+/* =========================
+TIME BOX SHADOW
+========================= */
+
+.time-box{
+
+box-shadow:
+
+0 15px 35px
+
+rgba(0,0,0,.25);
+
+}
+
+
+/* =========================
+PHOTO FRAME HOVER
+========================= */
+
+.photo-frame:hover{
+
+transform:scale(1.05);
+
+transition:.4s;
+
+}
+
+
+/* =========================
+SMOOTH LINKS
+========================= */
+
+a{
+
+text-decoration:none;
+
+color:inherit;
+
+}
+
+
+/* =========================
+INPUT RESET
+========================= */
+
+input,textarea{
+
+font-family:inherit;
+
+}
+
+
+/* =========================
+RESPONSIVE
+========================= */
+
+@media(max-width:900px){
+
+.card{
+
+padding:35px;
+
+}
+
+.title{
+
+font-size:65px;
+
+}
+
+.subtitle{
+
+font-size:20px;
+
+}
+
+.letter-text{
+
+font-size:18px;
+
+}
+
+.main-title{
+
+font-size:75px;
+
+}
+
+#counter{
+
+grid-template-columns:
+
+repeat(2,1fr);
+
+}
+
+}
+
+@media(max-width:600px){
+
+.card{
+
+width:95%;
+
+padding:25px;
+
+}
+
+.title{
+
+font-size:48px;
+
+}
+
+.subtitle{
+
+font-size:17px;
+
+line-height:1.8;
+
+}
+
+.small-title{
+
+font-size:16px;
+
+}
+
+.main-title{
+
+font-size:58px;
+
+}
+
+.nickname{
+
+font-size:24px;
+
+}
+
+.welcome-text{
+
+font-size:18px;
+
+}
+
+button{
+
+width:100%;
+
+padding:15px;
+
+font-size:18px;
+
+}
+
+#counter{
+
+grid-template-columns:1fr 1fr;
+
+gap:12px;
+
+}
+
+.time-box{
+
+padding:15px;
+
+}
+
+.time-box span{
+
+font-size:34px;
+
+}
+
+.time-box p{
+
+font-size:14px;
+
+}
+
+.photo-frame{
+
+width:180px;
+
+height:180px;
+
+}
+
+}
+
+
+/* =========================
+ANIMATIONS
+========================= */
+
+@keyframes cardShine{
+
+0%{
+
+left:-120%;
+
+}
+
+100%{
+
+left:140%;
+
+}
+
+}
+
+@keyframes auroraMove1{
+
+0%{
+
+transform:translate(0,0);
+
+}
+
+50%{
+
+transform:translate(120px,80px);
+
+}
+
+100%{
+
+transform:translate(0,0);
+
+}
+
+}
+
+@keyframes auroraMove2{
+
+0%{
+
+transform:translate(0,0);
+
+}
+
+50%{
+
+transform:translate(-120px,-80px);
+
+}
+
+100%{
+
+transform:translate(0,0);
+
+}
+
+}
+
+@keyframes shootingStar{
+
+0%{
+
+transform:
+
+translateX(0)
+
+translateY(0)
+
+rotate(-20deg);
+
+opacity:1;
+
+}
+
+100%{
+
+transform:
+
+translateX(1600px)
+
+translateY(350px)
+
+rotate(-20deg);
+
+opacity:0;
+
+}
+
+}
+
+/* =========================
+THE END ❤️
+========================= */
