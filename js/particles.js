@@ -1,6 +1,6 @@
 /* ==========================================
    OUR STORY ❤️
-   Premium Background Effects
+   particles.js
 ========================================== */
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
     createHearts();
     createPetals();
     createGlowParticles();
+    shootingStars();
 
 });
 
@@ -22,22 +23,23 @@ function createStars() {
 
     if (!container) return;
 
-    for (let i = 0; i < 250; i++) {
+    container.innerHTML = "";
+
+    for (let i = 0; i < 120; i++) {
 
         const star = document.createElement("div");
 
         star.className = "star";
-
-        star.style.left = Math.random() * 100 + "vw";
-        star.style.top = Math.random() * 100 + "vh";
 
         const size = Math.random() * 3 + 1;
 
         star.style.width = size + "px";
         star.style.height = size + "px";
 
-        star.style.animationDelay =
-            Math.random() * 5 + "s";
+        star.style.left = Math.random() * 100 + "%";
+        star.style.top = Math.random() * 100 + "%";
+
+        star.style.animationDelay = Math.random() * 5 + "s";
 
         container.appendChild(star);
 
@@ -55,14 +57,7 @@ function createHearts() {
 
     if (!container) return;
 
-    const hearts = [
-        "❤️",
-        "💕",
-        "💖",
-        "💗",
-        "💓",
-        "💞"
-    ];
+    const hearts = ["❤️","💕","💖","💗","💓","💞"];
 
     setInterval(() => {
 
@@ -71,15 +66,15 @@ function createHearts() {
         heart.className = "floating-heart";
 
         heart.innerHTML =
-            hearts[Math.floor(Math.random() * hearts.length)];
+            hearts[Math.floor(Math.random()*hearts.length)];
 
-        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.left = Math.random()*100 + "%";
 
         heart.style.fontSize =
-            (18 + Math.random() * 18) + "px";
+            (18 + Math.random()*18) + "px";
 
         heart.style.animationDuration =
-            (8 + Math.random() * 5) + "s";
+            (6 + Math.random()*4) + "s";
 
         container.appendChild(heart);
 
@@ -87,43 +82,43 @@ function createHearts() {
 
             heart.remove();
 
-        }, 14000);
+        },10000);
 
-    }, 400);
+    },700);
 
 }
 
 /* ==========================================
-   ROSE PETALS
+   PETALS
 ========================================== */
 
-function createPetals() {
+function createPetals(){
 
-    setInterval(() => {
+    setInterval(()=>{
 
-        const petal = document.createElement("div");
+        const petal=document.createElement("div");
 
-        petal.className = "petal";
+        petal.className="petal";
 
-        petal.innerHTML = "🌸";
+        petal.innerHTML="🌸";
 
-        petal.style.left = Math.random() * 100 + "vw";
+        petal.style.left=Math.random()*100+"%";
 
-        petal.style.fontSize =
-            (16 + Math.random() * 12) + "px";
+        petal.style.fontSize=
+        (16+Math.random()*10)+"px";
 
-        petal.style.animationDuration =
-            (10 + Math.random() * 6) + "s";
+        petal.style.animationDuration=
+        (8+Math.random()*4)+"s";
 
         document.body.appendChild(petal);
 
-        setTimeout(() => {
+        setTimeout(()=>{
 
             petal.remove();
 
-        }, 17000);
+        },12000);
 
-    }, 900);
+    },1200);
 
 }
 
@@ -131,32 +126,32 @@ function createPetals() {
    GLOW PARTICLES
 ========================================== */
 
-function createGlowParticles() {
+function createGlowParticles(){
 
-    setInterval(() => {
+    setInterval(()=>{
 
-        const glow = document.createElement("div");
+        const glow=document.createElement("div");
 
-        glow.className = "glow-particle";
+        glow.className="glow-particle";
 
-        glow.style.left = Math.random() * 100 + "vw";
+        glow.style.left=Math.random()*100+"%";
 
-        glow.style.top = Math.random() * 100 + "vh";
+        glow.style.top=Math.random()*100+"%";
 
-        const size = Math.random() * 6 + 2;
+        const size=Math.random()*5+2;
 
-        glow.style.width = size + "px";
-        glow.style.height = size + "px";
+        glow.style.width=size+"px";
+        glow.style.height=size+"px";
 
         document.body.appendChild(glow);
 
-        setTimeout(() => {
+        setTimeout(()=>{
 
             glow.remove();
 
-        }, 6000);
+        },5000);
 
-    }, 300);
+    },400);
 
 }
 
@@ -164,21 +159,29 @@ function createGlowParticles() {
    SHOOTING STAR
 ========================================== */
 
-setInterval(() => {
+function shootingStars(){
 
-    const shooting = document.createElement("div");
+    setInterval(()=>{
 
-    shooting.className = "shooting-star";
+        const shooting=document.createElement("div");
 
-    shooting.style.top =
-        Math.random() * 40 + "vh";
+        shooting.className="shooting-star";
 
-    document.body.appendChild(shooting);
+        shooting.style.top=
+        Math.random()*40+"%";
 
-    setTimeout(() => {
+        document.body.appendChild(shooting);
 
-        shooting.remove();
+        setTimeout(()=>{
 
-    }, 2200);
+            shooting.remove();
 
-}, 9000);
+        },2000);
+
+    },9000);
+
+}
+
+/* ==========================================
+   END
+========================================== */

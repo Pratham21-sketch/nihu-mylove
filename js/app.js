@@ -1,13 +1,11 @@
 /* ==========================================
    OUR STORY ❤️
-   Main App Script
+   app.js
 ========================================== */
 
 document.addEventListener("DOMContentLoaded", () => {
 
     startMusic();
-    createStars();
-    createHearts();
     loadingScreen();
 
 });
@@ -24,38 +22,32 @@ function startMusic() {
 
     music.volume = 0.30;
 
-    // Restore playback position
+    // Restore saved position
     const savedTime = localStorage.getItem("musicTime");
 
     if (savedTime) {
-
         music.currentTime = parseFloat(savedTime);
-
     }
 
-    // Start music after first user interaction
-    const playMusic = () => {
+    // Play after first interaction
+    function playMusic() {
 
         music.play().catch(() => {});
 
         document.removeEventListener("click", playMusic);
         document.removeEventListener("touchstart", playMusic);
 
-    };
+    }
 
     document.addEventListener("click", playMusic);
     document.addEventListener("touchstart", playMusic);
 
-    // Save playback position every second
-    setInterval(() => {
+    // Save playback position
+    music.addEventListener("timeupdate", () => {
 
-        if (!music.paused) {
+        localStorage.setItem("musicTime", music.currentTime);
 
-            localStorage.setItem("musicTime", music.currentTime);
-
-        }
-
-    }, 1000);
+    });
 
 }
 
@@ -84,75 +76,39 @@ function loadingScreen() {
 }
 
 /* ==========================================
-   STARS
+   TYPEWRITER
 ========================================== */
 
-function createStars() {
+function typeWriter(id, text, speed = 35) {
 
-    const container = document.getElementById("stars");
+    const element = document.getElementById(id);
 
-    if (!container) return;
+    if (!element) return;
 
-    for (let i = 0; i < 120; i++) {
+    element.innerHTML = "";
 
-        const star = document.createElement("div");
+    let i = 0;
 
-        star.className = "star";
+    function typing() {
 
-        const size = Math.random() * 3 + 1;
+        if (i < text.length) {
 
-        star.style.width = size + "px";
-        star.style.height = size + "px";
+            element.innerHTML += text.charAt(i);
 
-        star.style.left = Math.random() * 100 + "%";
-        star.style.top = Math.random() * 100 + "%";
+            i++;
 
-        star.style.animationDelay = Math.random() * 5 + "s";
+            setTimeout(typing, speed);
 
-        container.appendChild(star);
+        }
 
     }
 
-}
-
-/* ==========================================
-   FLOATING HEARTS
-========================================== */
-
-function createHearts() {
-
-    const container = document.getElementById("hearts");
-
-    if (!container) return;
-
-    setInterval(() => {
-
-        const heart = document.createElement("div");
-
-        heart.className = "floating-heart";
-
-        heart.innerHTML = "❤️";
-
-        heart.style.left = Math.random() * 100 + "%";
-
-        heart.style.fontSize = (18 + Math.random() * 18) + "px";
-
-        heart.style.animationDuration = (6 + Math.random() * 4) + "s";
-
-        container.appendChild(heart);
-
-        setTimeout(() => {
-
-            heart.remove();
-
-        }, 10000);
-
-    }, 800);
+    typing();
 
 }
 
 /* ==========================================
-   FULL PAGE CLICK
+   CLICK ANYWHERE
 ========================================== */
 
 function enableFullPageClick(nextPage) {
@@ -164,9 +120,7 @@ function enableFullPageClick(nextPage) {
             e.target.closest("a") ||
             e.target.closest("audio")
         ) {
-
             return;
-
         }
 
         window.location.href = nextPage;
@@ -176,7 +130,7 @@ function enableFullPageClick(nextPage) {
 }
 
 /* ==========================================
-   SMOOTH FADE
+   PAGE FADE
 ========================================== */
 
 window.addEventListener("pageshow", () => {

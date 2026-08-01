@@ -1,15 +1,13 @@
 /* ==========================================
    OUR STORY ❤️
-   Premium Page Transitions
+   transition.js
 ========================================== */
 
 document.addEventListener("DOMContentLoaded", () => {
 
     fadeInPage();
-
-    enableKeyboardNavigation();
-
-    preventDoubleClick();
+    heartbeatAnimation();
+    autoHideClick();
 
 });
 
@@ -20,15 +18,11 @@ document.addEventListener("DOMContentLoaded", () => {
 function fadeInPage() {
 
     document.body.style.opacity = "0";
+    document.body.style.transition = "opacity .7s ease";
 
-    document.body.style.transition =
-        "opacity .8s ease";
-
-    setTimeout(() => {
-
+    requestAnimationFrame(() => {
         document.body.style.opacity = "1";
-
-    }, 100);
+    });
 
 }
 
@@ -36,54 +30,39 @@ function fadeInPage() {
    PAGE FADE OUT
 ========================================== */
 
-function fadeOutPage(url) {
+function fadeOutPage(nextPage) {
 
     document.body.style.opacity = "0";
 
     setTimeout(() => {
 
-        window.location.href = url;
+        window.location.href = nextPage;
 
-    }, 700);
+    }, 500);
 
 }
-
-/* ==========================================
-   BUTTON TRANSITION
-========================================== */
-
-document.querySelectorAll("button").forEach(btn => {
-
-    btn.addEventListener("click", function(e) {
-
-        if (this.dataset.link) {
-
-            e.preventDefault();
-
-            fadeOutPage(this.dataset.link);
-
-        }
-
-    });
-
-});
 
 /* ==========================================
    CLICK ANYWHERE
 ========================================== */
 
-function enableClickTransition(nextPage) {
+let pageChanging = false;
 
-    document.body.addEventListener("click", function(e) {
+function enableFullPageClick(nextPage) {
+
+    document.body.addEventListener("click", function (e) {
+
+        if (pageChanging) return;
 
         if (
-            e.target.tagName === "BUTTON" ||
-            e.target.tagName === "A"
+            e.target.closest("button") ||
+            e.target.closest("a") ||
+            e.target.closest("audio")
         ) {
-
             return;
-
         }
+
+        pageChanging = true;
 
         fadeOutPage(nextPage);
 
@@ -92,85 +71,45 @@ function enableClickTransition(nextPage) {
 }
 
 /* ==========================================
+   BUTTON TRANSITION
+========================================== */
+
+document.addEventListener("click", function (e) {
+
+    const btn = e.target.closest("button");
+
+    if (!btn) return;
+
+    if (!btn.dataset.link) return;
+
+    e.preventDefault();
+
+    fadeOutPage(btn.dataset.link);
+
+});
+
+/* ==========================================
    KEYBOARD SUPPORT
 ========================================== */
 
-function enableKeyboardNavigation() {
+document.addEventListener("keydown", function (e) {
 
-    document.addEventListener("keydown", function(e) {
+    const next = document.body.dataset.next;
 
-        if (e.key === "Enter") {
+    if (!next) return;
 
-            const next = document.body.dataset.next;
-
-            if (next) {
-
-                fadeOutPage(next);
-
-            }
-
-        }
-
-        if (e.key === " ") {
-
-            e.preventDefault();
-
-            const next = document.body.dataset.next;
-
-            if (next) {
-
-                fadeOutPage(next);
-
-            }
-
-        }
-
-    });
-
-}
-
-/* ==========================================
-   DISABLE RAPID CLICKS
-========================================== */
-
-let pageChanging = false;
-
-function safeTransition(nextPage) {
-
-    if (pageChanging) return;
-
-    pageChanging = true;
-
-    fadeOutPage(nextPage);
-
-}
-
-/* ==========================================
-   PREVENT DOUBLE CLICK
-========================================== */
-
-function preventDoubleClick() {
-
-    document.addEventListener("dblclick", function(e) {
+    if (e.key === "Enter" || e.key === " ") {
 
         e.preventDefault();
 
-    });
+        fadeOutPage(next);
 
-}
+    }
 
-/* ==========================================
-   SCROLL TO TOP
-========================================== */
-
-window.onbeforeunload = function () {
-
-    window.scrollTo(0, 0);
-
-};
+});
 
 /* ==========================================
-   HEARTBEAT ON PAGE CHANGE
+   HEARTBEAT
 ========================================== */
 
 function heartbeatAnimation() {
@@ -179,28 +118,37 @@ function heartbeatAnimation() {
 
     if (!title) return;
 
-    title.style.animation =
-        "heartbeat 1.5s infinite";
+    title.style.animation = "heartbeat 1.8s infinite";
 
 }
 
-heartbeatAnimation();
-
 /* ==========================================
-   AUTO HIDE CLICK MESSAGE
+   CLICK TEXT
 ========================================== */
 
-setTimeout(() => {
+function autoHideClick() {
 
     const click = document.querySelector(".click");
 
-    if (click) {
+    if (!click) return;
+
+    setTimeout(() => {
 
         click.style.opacity = ".35";
 
-    }
+    }, 5000);
 
-}, 5000);
+}
+
+/* ==========================================
+   RESET SCROLL
+========================================== */
+
+window.onbeforeunload = () => {
+
+    window.scrollTo(0, 0);
+
+};
 
 /* ==========================================
    END
